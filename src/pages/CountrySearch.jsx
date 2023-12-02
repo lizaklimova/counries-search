@@ -8,21 +8,29 @@ import {
 } from "components";
 import { fetchByRegion } from "service/country-service";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export const CountrySearch = () => {
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (value) => {
-    setSearch(value);
+    // setSearch(value);
+    setSearchParams({ region: value });
   };
   useEffect(() => {
-    if (!search) return;
+    const params = searchParams.get("region") || "";
+
+    if (!params) return;
+    // if (!search) return;
     const getData = async () => {
       setIsLoading(true);
       try {
-        const data = await fetchByRegion(search);
+        // const data = await fetchByRegion(search);
+        const data = await fetchByRegion(params);
         setData(data);
       } catch (error) {
       } finally {
@@ -30,7 +38,8 @@ export const CountrySearch = () => {
       }
     };
     getData();
-  }, [search]);
+  }, [searchParams]);
+
   return (
     <Section>
       <Container>
