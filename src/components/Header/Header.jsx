@@ -28,9 +28,7 @@ export const Header = () => {
           </HeaderWrapper>
         </Container>
       </NavBar>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>{/* <Outlet /> */}</Suspense>
     </>
   );
 };
