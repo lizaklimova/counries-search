@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { fetchCountry } from "../service/country-service";
 
-export const Country = () => {
+const Country = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,3 +37,5 @@ export const Country = () => {
     </Section>
   );
 };
+
+export default Country;
