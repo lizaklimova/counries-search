@@ -1,6 +1,6 @@
 import { Container, CountryList, Heading, Loader, Section } from "components";
-import { useEffect, useState } from "react";
-import { getCountries } from "service/country-service";
+// import { useEffect, useState } from "react";
+// import { getCountries } from "service/country-service";
 import { useFetchCountries } from "hooks/useFetchCountries";
 
 const Home = () => {
