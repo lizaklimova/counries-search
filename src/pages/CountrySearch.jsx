@@ -10,7 +10,7 @@ import { fetchByRegion } from "service/country-service";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-export const CountrySearch = () => {
+const CountrySearch = () => {
   // const [search, setSearch] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -51,3 +51,5 @@ export const CountrySearch = () => {
     </Section>
   );
 };
+
+export default CountrySearch;
