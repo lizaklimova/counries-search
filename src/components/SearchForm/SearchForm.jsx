@@ -1,17 +1,21 @@
-import { FiSearch } from 'react-icons/fi';
-import { BtnSearch, Select, SearchFormStyled } from './SearchForm.styled';
+import { FiSearch } from "react-icons/fi";
+import { BtnSearch, Select, SearchFormStyled } from "./SearchForm.styled";
 
 const regions = [
-  { id: 'africa', value: 'africa', name: 'Africa' },
-  { id: 'america', value: 'america', name: 'America' },
-  { id: 'asia', value: 'asia', name: 'Asia' },
-  { id: 'europe', value: 'europe', name: 'Europe' },
-  { id: 'oceania', value: 'oceania', name: 'Oceania' },
+  { id: "africa", value: "africa", name: "Africa" },
+  { id: "america", value: "america", name: "America" },
+  { id: "asia", value: "asia", name: "Asia" },
+  { id: "europe", value: "europe", name: "Europe" },
+  { id: "oceania", value: "oceania", name: "Oceania" },
 ];
 
-export const SearchForm = () => {
+export const SearchForm = ({ submit }) => {
+  const handleSearch = (e) => {
+    e.preventDefault();
+    submit(e.target.region.value);
+  };
   return (
-    <SearchFormStyled>
+    <SearchFormStyled onSubmit={handleSearch}>
       <BtnSearch type="submit">
         <FiSearch size="16px" />
       </BtnSearch>
